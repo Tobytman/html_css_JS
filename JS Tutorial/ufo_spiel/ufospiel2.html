@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFO SPIEL</title>
+
+    <style>
+        canvas {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+
+    <script>
+        let KEY_SPACE = false; // 32
+        let KEY_UP = false; // 38
+        let KEY_DOWN = false; // 40
+        let canvas;
+        let ctx;
+        let backgroundImage = new Image();
+
+
+        let rocket = {
+            x: 100,
+            y: 200,
+            width: 200,
+            height: 80,
+            src: "img/rocket.png"
+        };
+
+        let ufo = {
+            x: 500,
+            y: 200,
+            width: 100,
+            height: 40,
+            src: "img/ufo.png"
+        };
+
+        document.onkeydown = function(e) {
+            console.log(e.keyCode);
+            if (e.keyCode == 32) { // wenn Leertaste gedrückt
+                KEY_SPACE = true;
+            }
+            if (e.keyCode == 38) { // wenn Leertaste gedrückt
+                KEY_UP = true;
+            }
+            if (e.keyCode == 40) { // wenn Leertaste gedrückt
+                KEY_DOWN = true;
+            }
+
+        }
+
+        document.onkeyup = function(e) {
+            if (e.keyCode == 32) { // wenn Leertaste losgelassen
+                KEY_SPACE = false;
+            }
+            if (e.keyCode == 38) { // wenn Leertaste losgelassen
+                KEY_UP = false;
+            }
+            if (e.keyCode == 32) { // wenn Leertaste losgelassen
+                KEY_DOWN = false;
+            }
+        }
+
+        function startGame() {
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            loadImages();
+            draw();
+            //calculate
+        }
+
+        function loadImages() {
+            backgroundImage.src = 'img/background.png';
+            rocket.img = new Image();
+            rocket.img.src = rocket.src;
+
+            ufo.img = new Image();
+            ufo.img.src = ufo.src;
+
+
+        }
+
+
+        function draw() {
+            requestAnimationFrame(draw);
+
+        }
+    </script>
+
+</head>
+
+<body onload="startGame()">
+
+    <canvas id="canvas" width="720" height="480"></canvas>
+
+</body>
+
+</html>
