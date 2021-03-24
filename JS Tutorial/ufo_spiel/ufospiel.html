@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFO SPIEL</title>
+
+    <style>
+        canvas{
+
+            background-color: rgba(0,0,0,0.8);
+        }
+    </style>
+
+    <script>
+        let KEY_SPACE = false; // 32
+        let KEY_UP = false; // 38
+        let KEY_DOWN = false; // 40
+
+        document.onkeydown = function(e){
+            if (e.keyCode == 32) { // wenn Leertaste gedrückt
+            KEY_SPACE = true;
+
+            }
+        }
+
+        document.onkeyup = function(e){
+            if (e.keyCode == 32) { // wenn Leertaste losgelassen
+            KEY_SPACE = false;
+
+            }
+        }
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <canvas width="720" height="480"></canvas>
+    
+</body>
+</html>
